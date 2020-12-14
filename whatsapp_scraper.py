@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 def get_contacts():
     # Return list of numbers
-    return ["91....", "91..."]
+    return ["91XXXXXXXXXX", "91XXXXXXXXXX"]
 
 
 if __name__ == "__main__":
@@ -23,9 +23,13 @@ if __name__ == "__main__":
                         help="Specify the message you want to send to your contacts")
     parser.add_argument("--file_type", required=True,
                         help="Specify the file type [image/document]")
+    parser.add_argument("--file_path", required=True,
+                        help="Specify the file path of the [image/document]")
+
     args = parser.parse_args()
     chrome_driver = args.chrome_driver
     file_type = args.file_type
+    media_file_path = os.path.abspath(args.file_path)
     message = args.message
 
     options = webdriver.ChromeOptions()
@@ -34,7 +38,6 @@ if __name__ == "__main__":
     wait = WebDriverWait(driver, 10)
     # driver.get("https://web.whatsapp.com/")
 
-    media_file_path = os.path.abspath("media/passport-mompdf.pdf")
     time.sleep(2)
 
     contacts = get_contacts()
