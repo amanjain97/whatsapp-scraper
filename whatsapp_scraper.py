@@ -22,7 +22,7 @@ if __name__ == "__main__":
     parser.add_argument("--message", required=True,
                         help="Specify the message you want to send to your contacts")
     parser.add_argument("--file_type", required=True,
-                        help="Specify the file type [image/document]")
+                        help="Specify the file type [image/document/na]")
     parser.add_argument("--file_path", required=True,
                         help="Specify the file path of the [image/document]")
 
@@ -52,6 +52,10 @@ if __name__ == "__main__":
             # driver.switch_to.alert.accept()
 
             time.sleep(3)
+            if file_type != "na":
+                continue
+
+            print("Sending media files too")
             attachment = driver.find_element_by_xpath('//div[@title="Attach"]')
             attachment.click()
             if file_type == "image":
