@@ -1,7 +1,7 @@
 # Whatsapp-scraper
 
 ## Usage
-1. Add contacts in contacts array 
+1. Add contacts in contacts.csv in same folder
 2. Run below command for sending image
 ```python
 python3 whatsapp_scraper.py --chrome_driver chromedriver --message hi --file_type image --file_path media/myimage.png
